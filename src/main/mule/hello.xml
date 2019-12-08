@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="9af80641-d21b-42c6-ad92-3ed08b633806" >
+		<http:listener-connection host="0.0.0.0" port="8084" />
+	</http:listener-config>
+	<flow name="helloFlow" doc:id="c6045d60-347e-416a-b296-b84d52794c43" >
+		<http:listener doc:name="Listener" doc:id="485f592b-9b95-4820-b721-b23ec61ee28f" config-ref="HTTP_Listener_config" path="test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="a1e99250-0b64-4d67-b33b-cf8ef06c1845" message="logging........"/>
+		<set-payload value='"message":"the program successfully deployed"' doc:name="Set Payload" doc:id="f78496e2-02ea-45a5-86c3-be46191efd7f" />
+	</flow>
+</mule>
